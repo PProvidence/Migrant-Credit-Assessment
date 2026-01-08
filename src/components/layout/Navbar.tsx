@@ -13,9 +13,9 @@ const navLinks = [
 
 export function Navbar() {
   return (
-    <nav className="hidden md:flex items-center justify-between gap-12.5">
+    <nav className="hidden md:flex items-center justify-between gap-8 lg:gap-12.5 xl:gap-20">
       {/* Navigation Links Group */}
-      <div className="flex items-center gap-12.5">
+      <div className="flex items-center gap-6 lg:gap-12.5">
         {navLinks.map((link) => (
           <Link
             key={link.name}

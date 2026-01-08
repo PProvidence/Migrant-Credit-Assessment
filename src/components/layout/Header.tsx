@@ -11,7 +11,7 @@ export function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 bg-white shadow-sm">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between lg:justify-evenly px-4 sm:px-6 lg:px-8">
           {/* Logo Div Container */}
           <div className="shrink-0">
             <Link href="/">
@@ -20,6 +20,7 @@ export function Header() {
                 alt="TMC Migrant Credit Logo"
                 width={100}
                 height={40}
+                className="w-16 sm:w-20 h-auto"
                 priority
               />
             </Link>
