@@ -36,7 +36,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           // BASE STYLES
           "inline-flex items-center justify-center h-12 rounded-[30px] transition-all duration-200",
           "text-[13px] font-medium leading-4.5 antialiased",
-          "focus:outline-none focus-visible:ring-2 focus-visible:ring-green-normal focus-visible:ring-offset-2",
+          "hover:cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-green-normal focus-visible:ring-offset-2",
           "disabled:opacity-50 disabled:cursor-not-allowed",
           
           // Apply Width Class
