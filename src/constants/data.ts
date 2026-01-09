@@ -26,19 +26,19 @@ export interface Testimonial {
 export const FEATURES: Feature[] = [
   {
     title: "Educational Modules",
-    description: "Curated modules covering credit basics, building credit history, and managing debt.",
+    description: "Structured modules covering credit basics, building credit history, understanding credit scores, and managing debt",
     iconPath: "/icons/eduMod.svg", 
     gradientClass: "from-[#369D49] to-[#A6ABA7]/0", 
   },
   {
     title: "Credit Tracking",
-    description: "Access to detailed credit reports with explanations of key elements.",
+    description: "Access to detailed credit reports with explanations of key elements",
     iconPath: "/icons/credTrack.svg",
     gradientClass: "from-tmc-blue to-[#a6aba7]/0", 
   },
   {
     title: "AI-Driven Support",
-    description: "Instant support for common credit-related queries through a user-friendly chatbot.",
+    description: "Instant support for common credit-related queries through a user-friendly chatbot",
     iconPath: "/icons/AIdriven.svg",
     gradientClass: "from-green-normal to-[#a6aba7]/0",
   },
