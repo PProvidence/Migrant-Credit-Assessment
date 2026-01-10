@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden sm:overflow-visible min-h-[700px]">
+    <section className="relative w-full overflow-hidden sm:overflow-visible h-[600px] sm:h-[720px] lg:h-[800px] py--12 sm:py--20 lg:py--24">
       {/* ================= BACKGROUND LAYER ================= */}
       <div className="absolute inset-0 pointer-events-none mx-20 2xl:mx-50">
         {/* Radial Gradient 1 */}
@@ -29,6 +29,8 @@ export default function Hero() {
               alt="Credit card"
               width={240}
               height={150}
+              // fill
+              priority
               className="absolute w-30 lg:w-60 right-0 top-[27px]- top-17.5"
             />
 
@@ -37,6 +39,8 @@ export default function Hero() {
               alt="Credit card"
               width={240}
               height={150}
+              // fill
+              priority
               className="absolute w-30 lg:w-60 right-[40px] top-[140px]"
             /> 
           </div>

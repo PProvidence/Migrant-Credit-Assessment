@@ -3,11 +3,11 @@ import { FEATURES } from "@/constants/data";
 
 export default function Features() {
   return (
-    <section className="relative w-full overflow-hidden">
+    <section className="relative w-full overflow--hidden mb-25">
       
 
       {/* ================= CONTENT WRAPPER ================= */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-24 space-y-6">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-12 space-y-6">
         {/* ================= MAP BACKGROUND ================= */}
         <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 opacity--20">
           <Image

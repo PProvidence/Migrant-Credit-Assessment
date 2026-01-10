@@ -28,19 +28,19 @@ export const FEATURES: Feature[] = [
     title: "Educational Modules",
     description: "Structured modules covering credit basics, building credit history, understanding credit scores, and managing debt",
     iconPath: "/icons/eduMod.svg", 
-    gradientClass: "from-[#369D49] to-[#A6ABA7]/0", 
+    gradientClass: "from-[#369D49] from-80% to-[#A6ABA7]/0 ", 
   },
   {
     title: "Credit Tracking",
     description: "Access to detailed credit reports with explanations of key elements",
     iconPath: "/icons/credTrack.svg",
-    gradientClass: "from-tmc-blue to-[#a6aba7]/0", 
+    gradientClass: "from-tmc-blue from-80% to-[#a6aba7]/0", 
   },
   {
     title: "AI-Driven Support",
     description: "Instant support for common credit-related queries through a user-friendly chatbot",
     iconPath: "/icons/AIdriven.svg",
-    gradientClass: "from-green-normal to-[#a6aba7]/0",
+    gradientClass: "from-green-normal from-80% to-[#a6aba7]/0",
   },
 ];
 
@@ -50,45 +50,45 @@ export const TABS_CONTENT: TabContent[] = [
     label: "Understanding Credit Scores",
     iconPath: "/icons/credit-score.svg",
     title: "Understanding Credit Scores",
-    content: "Learn about the components that make up a credit score, such as payment history, credit utilization, and length of credit history.",
+    content: " Learn about the components that make up a credit score, such as payment history, credit utilization, length of credit history, and more. Understand how credit scores are calculated and their impact on financial well-being.",
     cta: "Learn More",
-    gradientClass: "from-[#369D49] to-[#A6ABA7]/0"
+    gradientClass: "from-[#369D49] from-70% to-[#A6ABA7]/0"
   },
   {
     id: "building-history",
     label: "Building Credit History",
     iconPath: "/icons/credHistory.svg",
-    title: "Building Strong History",
+    title: "Building Strong Credit History",
     content: "Discover strategies to build a robust credit profile from scratch, perfect for immigrants and young adults.",
     cta: "Start Building",
-    gradientClass: "from-[#2a1d47] to-[#2a1d47]/0"
+    gradientClass: "from-[#2a1d47] from-70% to-[#2a1d47]/0"
   },
   {
     id: "credit-reports",
     label: "Accessing Credit Reports",
     iconPath: "/icons/credReport.svg",
-    title: "Understanding Your Reports",
+    title: "Understanding Your Credit Reports",
     content: "Learn how to access your free annual credit report and what to look for when reviewing it for errors or inaccuracies.",
     cta: "View Reports",
-    gradientClass: "from-[#ff9c00] to-[#ff9c00]/0"
+    gradientClass: "from-[#ff9c00] from-70% to-[#ff9c00]/0 to-100%"
   },
   {
     id: "managing-debt",
     label: "Managing Debt Effectively",
-    iconPath: "/icons/debt.svg",
+    iconPath: "/icons/manageDebt.svg",
     title: "Manage Debt Effectively",
     content: "Strategies to minimize debt and improve your credit utilization ratio, a key factor in your score calculation.",
     cta: "Get Started",
-    gradientClass: "from-[#2a6f97] to-[#2a6f97]/0"
+    gradientClass: "from-[#2a6f97] from-70% to-[#2a6f97]/0"
   },
   {
     id: "financial-goal",
     label: "Financial Goal Setting",
-    iconPath: "/images/goals.svg",
+    iconPath: "/icons/goals.svg",
     title: "Achieve Your Financial Goals",
     content: "Set clear objectives for homeownership, car loans, or starting a business, with a tailored plan for success.",
     cta: "Set Goals",
-    gradientClass: "from-[#d61651] to-[#d61651]/0"
+    gradientClass: "from-[#d61651] from-70% to-[#d61651]/0"
   },
 
 ];

@@ -13,9 +13,9 @@ const navLinks = [
 
 export function Navbar() {
   return (
-    <nav className="hidden md:flex items-center justify-between gap-8 md:gap-3.5 lg:gap-12.5 xl:gap-20">
+    <nav className="hidden w-full md:flex items-center justify-center gap-8 md:gap-3.5 lg:gap-12.5 xl:gap-20">
       {/* Navigation Links Group */}
-      <div className="flex items-center gap-6 sm:gap-4.5 md:gap-5 lg:gap-12.5">
+      <div className="flex items-center gap-6 sm:gap-4 md:gap--5 lg:gap-12.5">
         {navLinks.map((link) => (
           <Link
             key={link.name}
@@ -27,15 +27,7 @@ export function Navbar() {
         ))}
       </div>
 
-      {/* Button Group Div */}
-      <div className="flex items-center gap-2.5 lg:gap-4">
-        <Button variant="primary" width="sm">
-          Subscribe
-        </Button>
-        <Button variant="outline" width="sm">
-          Login
-        </Button>
-      </div>
+
     </nav>
   );
 }
