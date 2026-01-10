@@ -4,8 +4,6 @@ import { FEATURES } from "@/constants/data";
 export default function Features() {
   return (
     <section className="relative w-full overflow--hidden mb-25">
-      
-
       {/* ================= CONTENT WRAPPER ================= */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-12 space-y-6">
         {/* ================= MAP BACKGROUND ================= */}
@@ -18,19 +16,19 @@ export default function Features() {
           />
         </div>
         {/* ================= HEADER SECTION ================= */}
-        <div className="mb--20">
+        <div className="space-y-3 lg:space-y-4 xl:space-y-6 mb-6">
           {/* Eyebrow */}
-          <p className="mb-6 text-base font-bold tracking-wider text-tmc-blue uppercase">
+          <h4 className="text-base font-bold tracking-wider text-tmc-blue uppercase">
             Empowering Your Financial Journey
-          </p>
+          </h4>
 
           {/* Heading */}
-          <h2 className="mb-8 max-w-3xl text-5xl font-semibold leading-tight text-green-darker">
+          <h2 className="max-w-3xl text-[32px] 2xl:text-4xl font-semibold leading-tight text-green-darker">
             Explore the Key Features of Migrant Credit
           </h2>
 
           {/* Description */}
-          <p className="max-w-2xl text-base leading-8 text-gray-1">
+          <p className="max-w-2xl text-base 2xl:text-lg leading-8 text-gray-1">
             Explore educational modules, track your credit journey, and get personalized AI assistance. Your journey to financial well-being starts here.
           </p>
         </div>
@@ -90,7 +88,7 @@ export default function Features() {
             {/* Content (positioned at bottom) */}
             <div className="absolute bottom-6 left-6 right-6">
               {/* Title */}
-              <h3 className="mb-3 text-xl font-semibold text-[#0c1e20]">
+              <h3 className="mb-3 text-xl font-semibold text-green-darker">
                 {FEATURES[1].title}
               </h3>
 

@@ -96,38 +96,38 @@ export const TABS_CONTENT: TabContent[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
-    text: "Migrant Credit has been a game-changer for me! The educational modules are clear and easy to follow, helping me understand the complexities of the U.S. credit system.",
+    text: "Migrant Credit has been a game-changer for me! The educational modules are clear and easy to follow, helping me understand the complexities of the U.S. credit system. The real-time credit tracking is a lifesaver, and the AI-driven support has given me personalized insights that have significantly improved my financial decisions. Highly recommend",
     author: "Ayomide",
     role: "Recent Graduate",
-    avatar: "/images/avatars/avatar1.svg"
+    avatar: "/images/avatars/avatar3.svg"
   },
   {
     id: 2,
     text: "I was lost when I first arrived. This platform gave me the roadmap I needed to secure my first car loan within 6 months.",
     author: "Sarah",
     role: "Healthcare Worker",
-    avatar: "/images/avatars/avatar2.svg"
+    avatar: "/images/avatars/avatar4.svg"
   },
   {
     id: 3,
     text: "The AI support answered questions my bank couldn't. I went from no score to 720 in less than a year thanks to these modules.",
     author: "Carlos",
     role: "Software Engineer",
-    avatar: "/images/avatars/avatar3.svg"
+    avatar: "/images/avatars/avatar5.svg"
   },
   {
     id: 4,
     text: "A genuine game-changer. The clear tracking and steps provided made something daunting feel achievable. Highly recommend for any new American.",
     author: "Fatima",
     role: "Small Business Owner",
-    avatar: "/images/avatars/avatar4.svg"
+    avatar: "/images/avatars/avatar1.svg"
   },
   {
     id: 5,
     text: "Within a few months of using Migrant Credit, I saw a significant jump in my score. The modules are excellent.",
     author: "David",
     role: "Student",
-    avatar: "/images/avatars/avatar5.svg"
+    avatar: "/images/avatars/avatar2.svg"
   }
 
 ];

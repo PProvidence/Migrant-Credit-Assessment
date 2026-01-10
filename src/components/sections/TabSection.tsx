@@ -23,15 +23,6 @@ export default function TabSection() {
 
   return (
     <section className="mt-3 mb-7 w-full sm:max-w--11/12 2xl:max-w-260 mx-auto bg-white">
-      {/* Section Header */}
-      {/* <div className="mb-12">
-         <h4 className="text-tmc-blue font-bold uppercase tracking-widest text-sm mb-2">Empower Your Financial Journey</h4>
-         <h2 className="text-3xl font-bold text-brand-dark">What Should I Know?</h2>
-         <p className="text-gray-medium mt-4 max-w-xl">
-           Discover essential information to navigate the U.S. credit landscape confidently.
-         </p>
-      </div> */}
-
       {/* Tab Navigation */}
       <div className="grid sm:grid-cols-12 sm:gap-6 lg:gap-8 xl:gap-10 items-center pt-8 sm:pt-12 xl:pt-16.5">
         {/* --- LEFT COLUMN: Navigation --- */}

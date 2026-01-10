@@ -2,6 +2,7 @@
 import Hero from "@/components/sections/Hero";
 import Features from "@/components/sections/Features";
 import WhatShouldIKnow from "@/components/sections/WhatShouldIKnow";
+import Reviews from "@/components/sections/Reviews";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <Hero />
         <Features />
         <WhatShouldIKnow />
+        <Reviews />
       </main>
     </div>
   );

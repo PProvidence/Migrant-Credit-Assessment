@@ -60,7 +60,7 @@ export default function Hero() {
 
                <svg
                 className="
-                  absolute animate-[spin_6s_linear_infinite]
+                  absolute animate--[spin_6s_linear_infinite]
                   -left-[0.35em]
                   -top-[0.15em]
                   w-[calc(100%+0.7em)]
