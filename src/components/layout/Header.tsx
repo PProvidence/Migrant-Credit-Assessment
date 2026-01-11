@@ -1,5 +1,6 @@
 "use client";
 
+import { useModal } from "@/context/ModalContext";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -8,6 +9,7 @@ import Button from '@/components/ui/Button';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { openSignUp } = useModal();
 
   return (
     <>
@@ -32,7 +34,7 @@ export function Header() {
 
           {/* Button Group Div */}
           <div className="hidden md:flex items-center gap-2.5 lg:gap-4">
-            <Button variant="primary" width="sm">
+            <Button variant="primary" width="sm" onClick={openSignUp}>
               Subscribe
             </Button>
             <Button variant="outline" width="sm">
