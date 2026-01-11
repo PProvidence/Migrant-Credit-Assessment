@@ -1,3 +1,4 @@
+import { ModalProvider } from "@/context/ModalContext";
 import type { Metadata } from "next";
 import { Arimo } from "next/font/google";
 import "./globals.css";
@@ -28,9 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={arimo.variable}>
       <body className="font-sans text-gray-1 antialiased">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <ModalProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </ModalProvider>
       </body>
     </html>
   );
