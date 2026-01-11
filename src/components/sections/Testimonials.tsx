@@ -21,8 +21,7 @@ export default function Testimonials() {
 
   // Clicked Avatar
   const handleAvatarClick = (relativeIndex: number) => {
-    // relativeIndex ranges from 0 to 4. The center is always 2.
-    // Calculate offset: 1 -> -1 (Prev), 3 -> +1 (Next), etc.
+    // relativeIndex ranges from 0 to 4. The center is always 2.  Calculate offset: 1 -> -1 (Prev), 3 -> +1 (Next), etc.
     const offset = relativeIndex - 2; 
     
     // Calculate new index wrapping around the array length
