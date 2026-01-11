@@ -14,7 +14,86 @@ Tech Stack: Next.js 16.1.1, Tailwind CSS v4.1.18, TypeScript, Framer Motion.
 
 ---
 
-### Requirements
+## 🏗️ Architectural Decision Log (ADR)
+
+### 1. Typography & Visual Fidelity
+* **Context:** The design uses `Helvetica Neue` (proprietary). The assessment strictly requires "pixel-perfect" fidelity.
+* **Decision:** Implemented a **Metric-Compatible Font Stack**.
+    * **Primary:** `Helvetica Neue` (for macOS/iOS users) to utilize system fonts for 0ms loading time.
+    * **Fallback:** `Arimo` (via `next/font`) for Windows/Android users.
+* **Rationale:** Unlike `Inter`, `Arimo` is metric-compatible with Helvetica. This guarantees that line breaks, container widths, and text wrapping match the Figma file exactly on Windows, preventing layout shifts that occur with wider modern fonts.
+
+### 2. Component Architecture
+* **Context:** Need for a reusable, accessible design system without "junior" dependencies.
+* **Decision:** **"Headless" Atomic Design** (Manual Implementation).
+    * Declined using full `shadcn/ui` library to avoid fighting opinionated default styles.
+    * Adopted the **CVA (Class Variance Authority)** pattern using `clsx` and `tailwind-merge` for the `Button` and `Input` components.
+* **Result:** A lightweight, 100% custom component set that matches the Figma design tokens exactly, with zero unused CSS bloat.
+
+### 3. State Management
+* **Context:** The "What Should I Know?" section requires switching content panes.
+* **Decision:** **URL-Driven State** (`useSearchParams`).
+* **Rationale:** Instead of local `useState`, the active tab is synced to the URL (e.g., `?tab=building-credit`). This improves UX by making specific educational modules shareable and bookmarkable.
+
+### 4. Performance & Core Web Vitals
+* **Logo Strategy:** Exported as SVG and implemented via `next/image` with `priority={true}`. Using a web font (Chakra Petch) was rejected to save a network request and prevent CLS (Cumulative Layout Shift).
+* **LCP Optimization:** The Hero image is explicitly prioritized to ensure it loads in the first packet.
+* **Server Components:** The Hero, Features, and Footer sections are kept as React Server Components (RSC) to minimize client-side bundle size.
+
+### 5. Security & Data Integrity
+* **Context:** Newsletter submission form.
+* **Decision:** **Server Actions + Zod Validation**.
+* **Rationale:**
+    * Using React 19 `useActionState` and Server Actions keeps API logic off the client.
+    * **Zod Schema** enforces strict email validation on the server boundary, preventing injection attacks or malformed data before it reaches any database logic.
+
+### 6. Mock Data & API Transition Strategy
+* **Context:** No live backend exists for the newsletter subscription.
+* **Implementation:** The `subscribeToNewsletter` Server Action currently implements a **Mock Adapter pattern**. It simulates network latency (1.5s), success states, and specific error codes (e.g., duplicate emails).
+* **Transition Plan:** The mock logic is isolated in a specifically marked comment block within `src/actions/newsletter.ts`. The contract (`NewsletterState` input/output) is strict, ensuring that swapping the mock block for a real `fetch()` call will require **zero changes** to the frontend UI components.
+---
+
+### 📂 Project Structure
+
+```bash
+src/
+ ├─ actions/             # Server Actions (Backend logic & validation)
+ │   └─ newsletter.ts
+ ├─ app/                 # Next.js App Router
+ │   ├─ layout.tsx
+ │   ├─ page.tsx
+ │   └─ globals.css
+ ├─ components/
+ │   ├─ layout/          # Global layout components
+ │   │   ├─ Header.tsx
+ │   │   ├─ Navbar.tsx
+ │   │   └─ Footer.tsx
+ │   ├─ sections/        # Major page blocks
+ │   │   ├─ Hero.tsx
+ │   │   ├─ Features.tsx
+ │   │   ├─ WhatShouldIKnow.tsx
+ │   │   ├─ Testimonials.tsx 
+ │   │   ├─ Reviews.tsx
+ │   │   └─ Newsletter.tsx
+ │   └─ ui/              # Atomic primitives
+ │       ├─ Button.tsx
+ │       ├─ Input.tsx
+ │       └─ Icons.tsx
+ ├─ constants/           # Static data contracts
+ │   └─ data.ts
+ └─ lib/                 # Shared utilities
+     ├─ schemas.ts       # Zod definitions
+     └─ utils.ts         # Tailwind merger
+
+public/
+ ├─ icons/               # SVG UI icons
+ ├─ images/              # Raster assets
+ │   └─ avatars/         # Testimonial user images
+ └─ logos/               # Brand assets
+```
+---
+
+## Requirements
 **Core Assessment Criteria:**
 - Design fidelity: Pixel-accuracy and attention to spacing, typography, and layout
 - Component structure: Reusable, well-organized components
@@ -70,21 +149,15 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+5. Build for Production:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```Bash
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+npm run build
+# or
+yarn build
+# or
+pnpm build
+# or
+bun build
+```
