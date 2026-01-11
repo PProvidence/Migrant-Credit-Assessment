@@ -48,7 +48,7 @@ export default function Testimonials() {
     }
   };
 
-  // Helper to get visible items centered around activeIndex
+  // Get visible items centered around activeIndex
   const getVisibleTestimonials = () => {
     const total = TESTIMONIALS.length;
     const indices = [];
@@ -63,15 +63,20 @@ export default function Testimonials() {
   const activeTestimonial = TESTIMONIALS[activeIndex];
 
   return (
-    <section className=" bg-white overflow-hidden">
+    <section className="bg-white overflow-hidden" aria-label="Customer Testimonials">
       <div className="max-w-7xl mx-auto px-0 sm:px-4 flex flex-col items-center">
 
         {/* 1. Header & Stars */}
         <h2 className="text-2xl 2xl:text-3xl font-bold text-green-darker mb-4 lg:mb-6">Game Changer</h2>
-        <div className="flex gap-2 mb-6">
+        <div className="flex gap-2 mb-6" aria-hidden="true"> {/* Decorative stars */}
           {[...Array(5)].map((_, i) => (
             <Star key={i} className="w-6 h-6 fill-green-normal text-green-normal" />
           ))}
+        </div>
+
+        {/* --- A11Y LIVE REGION (Invisible to eye, visible to screen reader) --- */}
+        <div className="sr-only" aria-live="polite" aria-atomic="true">
+          Current slide: Testimonial from {activeTestimonial.author}. &quot;{activeTestimonial.text}&quot;
         </div>
 
         {/* 2. MAIN ROW: Control < Quote Box > Control */}
@@ -89,7 +94,7 @@ export default function Testimonials() {
           <div className="relative w-full max-w-[467px] min-h-[156px]">
 
             {/* A. Background: 4-Sided Gradient Border */}
-            <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
               <svg width="100%" height="100%" viewBox="0 0 467 156" fill="none" preserveAspectRatio="none">
                 <path d="M465.5 1.5V154.5H1.5V1.5H465.5Z" fill="white" stroke="url(#paint0_linear_testimonials)" strokeWidth="3" />
                 <defs>
@@ -104,7 +109,7 @@ export default function Testimonials() {
             {/* B. Content Layer */}
             <div className="relative z-10 p-6 pr-3 sm:pr-4 sm:p-7 flex flex-col justify-center min-h-[156px]">
               {/* Quote Icon (Fixed Top-Left) */}
-              <div className="absolute top-3 left-2 sm:left-3">
+              <div className="absolute top-3 left-2 sm:left-3" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M3.13335 11.7999C2.46668 11.0666 2.06668 10.2666 2.06668 8.93322C2.06668 6.59989 3.73335 4.53322 6.06668 3.46655L6.66668 4.33322C4.46668 5.53322 4.00001 7.06655 3.86668 8.06655C4.20001 7.86655 4.66668 7.79989 5.13335 7.86655C6.33335 7.99989 7.26668 8.93322 7.26668 10.1999C7.26668 10.7999 7.00001 11.3999 6.60001 11.8666C6.13335 12.3332 5.60001 12.5332 4.93335 12.5332C4.20001 12.5332 3.53335 12.1999 3.13335 11.7999ZM9.80001 11.7999C9.13335 11.0666 8.73335 10.2666 8.73335 8.93322C8.73335 6.59989 10.4 4.53322 12.7333 3.46655L13.3333 4.33322C11.1333 5.53322 10.6667 7.06655 10.5333 8.06655C10.8667 7.86655 11.3333 7.79989 11.8 7.86655C13 7.99989 13.9333 8.93322 13.9333 10.1999C13.9333 10.7999 13.6667 11.3999 13.2667 11.8666C12.8667 12.3332 12.2667 12.5332 11.6 12.5332C10.8667 12.5332 10.2 12.1999 9.80001 11.7999Z" fill="#23575B" />
                 </svg>
@@ -178,6 +183,7 @@ export default function Testimonials() {
                   key={`${item.id}-${index}`}
                   layout
                   onClick={()=> handleAvatarClick(index)}
+                  onKeyDown={(e) => handleAvatarKeyDown(e, index)}
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{
                     scale: isCenter ? 1 : isNeighbor ? 0.9 : 0.8,
@@ -210,7 +216,7 @@ export default function Testimonials() {
         </div>
 
         {/* 4. Name Display */}
-        <div className="mt-2 text-center">
+        <div className="mt-2 text-center" aria-live="polite">
           <h3 className="text-2xl font-medium text-green-darker">{activeTestimonial.author}</h3>
           {/* <p className="text-gray-500">{activeTestimonial.role}</p> */}
         </div>
