@@ -31,10 +31,10 @@ export default function Newsletter() {
 
         {/* --- Background Maps (Absolute Positioned) --- */}
         <div className="absolute top-0 left-2.25 w-full h-full opacity-40 pointer-events-none select-none">
-          <Image src="/images/newsMap-left.svg" alt="" fill className="object-contain object-left-top" />
+          <Image src="/images/newsMap-left.svg" alt="" fill className="object-contain object-top-left" />
         </div>
         <div className="absolute top-1.25 right-2 w-75 h-full opacity-40 pointer-events-none select-none">
-          <Image src="/images/newsMap-right.svg" alt="" fill className="object-contain object-right-top" />
+          <Image src="/images/newsMap-right.svg" alt="" fill className="object-contain object-top-right" />
         </div>
 
         {/* --- Content Container (Relative z-10) --- */}
@@ -64,7 +64,7 @@ export default function Newsletter() {
                   error={!!state.errors?.email?.[0]}
                   disabled={isPending || state.success}
                   className={cn(
-                    "bg-white/70 border-gray-4 text-gray-1 placeholder:text-[#BDBDBD] h-12 w-full",
+                    "bg-white/70 border-gray-4 text-gray-1 placeholder:text-gray-4 h-12 w-full",
                     state.success && "bg-green-light/50 ring-1 ring-green-normal border-green-normal text-green-darker placeholder:text-green-darker"
                   )}
                   startIcon={
@@ -102,7 +102,7 @@ export default function Newsletter() {
               </Button>
             </div>
             {/* Status Message */}
-            <div className="min-h-[24px] text-left pl-4 mt-1 transition-all duration-300">
+            <div className="min-h-6 text-left pl-4 mt-1 transition-all duration-300">
               {/* 1. Validation Error (Client-side Zod check) */}
               {state?.errors?.email && (
                 <p className="flex items-center text-red-600 text-sm font-medium animate-in slide-in-from-top-1 fade-in">
