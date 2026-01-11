@@ -35,7 +35,7 @@ export default function Testimonials() {
 
   return (
     <section className=" bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col items-center">
+      <div className="max-w-7xl mx-auto px-0 sm:px-4 flex flex-col items-center">
         
         {/* 1. Header & Stars */}
         <h2 className="text-2xl 2xl:text-3xl font-bold text-green-darker mb-4 lg:mb-6">Game Changer</h2>
@@ -46,15 +46,15 @@ export default function Testimonials() {
         </div>
 
         {/* 2. MAIN ROW: Control < Quote Box > Control */}
-        <div className="flex items-center justify-between gap-4 sm:gap-8 xl:gap-16 md:gap-16 w-full max-w-5xl xl:max-x--260 relative mb-6">
+        <div className="flex items-center justify-between gap-3.5 sm:gap-8 xl:gap-16 md:gap-16 w-full max-w-5xl xl:max-x--260 relative mb-6">
             
             {/* Left Control (Beside Box) */}
             <button 
                 onClick={handlePrev}
-                className="size-8 sm:size-12 rounded-full border border-green-darker flex items-center justify-center hover:bg-green-light-hover/50 transition-colors flex-shrink-0"
+                className="size-6 sm:size-12 rounded-full border border-green-darker flex items-center justify-center hover:bg-green-light-hover/50 transition-colors flex-shrink-0"
                 aria-label="Previous testimonial"
             >
-                <ChevronLeft className="w-6 h-6 text-green-darker" />
+                <ChevronLeft className="size-4 sm:size-6 text-green-darker" />
             </button>
 
             {/* THE QUOTE BOX */}
@@ -80,9 +80,9 @@ export default function Testimonials() {
                </div>
                 
                {/* B. Content Layer */}
-               <div className="relative z-10 px-8 py-8 flex flex-col justify-center min-h-[156px]">
+                <div className="relative z-10 p-6 pr-3 sm:pr-4 sm:p-7 flex flex-col justify-center min-h-[156px]">
                   {/* Quote Icon (Fixed Top-Left) */}
-                  <div className="absolute top-[12px] left-[12px]">
+                  <div className="absolute top-3 left-2 sm:left-3">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path d="M3.13335 11.7999C2.46668 11.0666 2.06668 10.2666 2.06668 8.93322C2.06668 6.59989 3.73335 4.53322 6.06668 3.46655L6.66668 4.33322C4.46668 5.53322 4.00001 7.06655 3.86668 8.06655C4.20001 7.86655 4.66668 7.79989 5.13335 7.86655C6.33335 7.99989 7.26668 8.93322 7.26668 10.1999C7.26668 10.7999 7.00001 11.3999 6.60001 11.8666C6.13335 12.3332 5.60001 12.5332 4.93335 12.5332C4.20001 12.5332 3.53335 12.1999 3.13335 11.7999ZM9.80001 11.7999C9.13335 11.0666 8.73335 10.2666 8.73335 8.93322C8.73335 6.59989 10.4 4.53322 12.7333 3.46655L13.3333 4.33322C11.1333 5.53322 10.6667 7.06655 10.5333 8.06655C10.8667 7.86655 11.3333 7.79989 11.8 7.86655C13 7.99989 13.9333 8.93322 13.9333 10.1999C13.9333 10.7999 13.6667 11.3999 13.2667 11.8666C12.8667 12.3332 12.2667 12.5332 11.6 12.5332C10.8667 12.5332 10.2 12.1999 9.80001 11.7999Z" fill="#23575B"/>
                     </svg>
@@ -95,7 +95,7 @@ export default function Testimonials() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className="ml--5 text-green-darker text-sm leading-relaxed font-normal text-left"
+                      className="text-green-darker text-sm leading-relaxed font-normal text-left"
                     >
                       {activeTestimonial.text}
                     </motion.p>
@@ -122,6 +122,7 @@ export default function Testimonials() {
                         />
                         {/* Mask to hide the box's bottom border behind the V */}
                         <rect x="2.5" y="-1.5" width="52" height="6" fill="white" />
+                        <rect x="2.5" y="1.0" width="52" height="6" fill="white" />
                     </svg>
                </div>
             </div>
@@ -129,10 +130,10 @@ export default function Testimonials() {
             {/* Right Control (Beside Box) */}
             <button 
                 onClick={handleNext}
-                className="size-8 sm:size-12 rounded-full border border-green-darker flex items-center justify-center hover:bg-green-light-hover/50 transition-colors flex-shrink-0"
+                className="size-6 sm:size-12 rounded-full border border-green-darker flex items-center justify-center hover:bg-green-light-hover/50 transition-colors flex-shrink-0"
                 aria-label="Next testimonial"
             >
-                <ChevronRight className="w-6 h-6 text-green-darker" />
+                <ChevronRight className="size-4 sm:size-6  text-green-darker" />
             </button>
         </div>
 

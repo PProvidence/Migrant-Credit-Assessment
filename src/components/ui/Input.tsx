@@ -18,7 +18,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           className={cn(
             "flex h-12 w-full rounded-[30px] border border-transparent bg-white/70 px-4 py-2 xl:py-3 text-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[#BDBDBD] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#23575b] disabled:cursor-not-allowed disabled:opacity-50",
-            startIcon && "pl-3", // Add padding if icon exists
+            startIcon && "pl-12", // Add padding if icon exists
             error && "ring-2 ring-red-500 bg-red-50",
             className
           )}

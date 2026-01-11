@@ -5,7 +5,7 @@ export default function Reviews() {
   return (
     <section className="relative w-full py-18 mb-7.5">
       {/* container */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-2 sm:px-4 md:px-6 py--12 space-y-6">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-1 sm:px-4 md:px-6 py--12 space-y-6">
         {/* map background */}
         <div className="pointer-events-none absolute right-0 -top-38 size-87 max-w-96 opacity--20">
           <Image
