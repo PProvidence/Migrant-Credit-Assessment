@@ -1,7 +1,12 @@
+'use client';
+
 import Image from "next/image";
+import Button from "../ui/Button";
+import { useModal } from '@/context/ModalContext';
 // import { motion } from "framer-motion";
 
 export default function Hero() {
+  const { openSignUp } = useModal();
   return (
     <section className="relative w-full overflow-hidden sm:overflow-visible h-[600px] sm:h-[720px] lg:h-[800px] py--12 sm:py--20 lg:py--24">
       {/* ================= BACKGROUND LAYER ================= */}
@@ -42,7 +47,7 @@ export default function Hero() {
               // fill
               priority
               className="absolute w-30 lg:w-60 right-[40px] top-[140px]"
-            /> 
+            />
           </div>
         </div>
       </div>
@@ -58,7 +63,7 @@ export default function Hero() {
             <span className="relative inline-block">
               <span className="relative z-10">Navigate</span>
 
-               <svg
+              <svg
                 className="
                   absolute animate--[spin_6s_linear_infinite]
                   -left-[0.35em]
@@ -93,37 +98,17 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="mt-[48px] flex flex-wrap gap-6">
-            <button
-              className="
-                w-[180px]
-                h-12
-                rounded-[30px]
-                bg-[#23575b]
-                text-white
-                text-[13px]
-                font-medium
-                outline outline-[0.5px] outline-offset-[-0.5px]
-                focus-visible:ring-2 focus-visible:ring-[#23575b]
-              "
+            <Button
+              variant="primary"
+              width="md"
+              onClick={openSignUp}
             >
               Sign up for free
-            </button>
-
-            <button
-              className="
-                w-[180px]
-                h-12
-                rounded-[30px]
-                text-[#23575b]
-                text-[13px]
-                font-medium
-                outline outline-[1.5px] outline-[#23575b]
-                focus-visible:ring-2 focus-visible:ring-[#23575b]
-              "
-            >
-              Login
-            </button>
-          </div>
+            </Button>
+              <Button variant="outline" width="md">
+            Login
+          </Button>
+        </div>
         </div>
       </div>
 
