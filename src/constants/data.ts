@@ -118,14 +118,14 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: 4,
     text: "A genuine game-changer. The clear tracking and steps provided made something daunting feel achievable. Highly recommend for any new American.",
-    author: "Fatima",
+    author: "David",
     role: "Small Business Owner",
     avatar: "/images/avatars/avatar1.svg"
   },
   {
     id: 5,
     text: "Within a few months of using Migrant Credit, I saw a significant jump in my score. The modules are excellent.",
-    author: "David",
+    author: "Claire",
     role: "Student",
     avatar: "/images/avatars/avatar2.svg"
   }

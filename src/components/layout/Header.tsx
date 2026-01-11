@@ -17,7 +17,7 @@ export function Header() {
           <div className="shrink-0">
             <Link href="/">
               <Image
-                src="/TMC-logo.svg"
+                src="/logos/TMC-logo.svg"
                 alt="TMC Migrant Credit Logo"
                 width={100}
                 height={40}

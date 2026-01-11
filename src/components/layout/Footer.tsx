@@ -33,7 +33,7 @@ export function Footer() {
             <div className="shrink-0" aria-label="TMC Home">
               <Link href="/">
                 <Image
-                  src="/TMC-logoWhite.svg"
+                  src="/logos/TMC-logoWhite.svg"
                   alt="TMC Migrant Credit Logo"
                   width={100}
                   height={40}

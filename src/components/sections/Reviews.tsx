@@ -1,5 +1,32 @@
+'use client';
+
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import Testimonials from "./Testimonials";
+
+// lazy load the Testimonials component
+const TestimonialsSection = dynamic(
+  () => import('@/components/sections/Testimonials'), 
+  { 
+    loading: () => <TestimonialsSkeleton />, // Shows this while loading
+    ssr: false // Optional: Disable SSR if it causes hydration mismatch with complex carousels
+  }
+);
+
+// Fallback loader
+function TestimonialsSkeleton() {
+  return (
+    <div className="py-12 bg-white text-center flex flex-col items-center justify-center">
+      {/* Skeleton mimicking the quote box */}
+      <div className="h-40 w-full max-w-[467px] bg-gray-100 rounded-[20px] animate-pulse mb-8" />
+      {/* Skeleton mimicking the avatar row */}
+      <div className="flex gap-4 items-center justify-center opacity-50">
+         <div className="w-16 h-16 rounded-full bg-gray-200 animate-pulse" />
+         <div className="w-20 h-20 rounded-full bg-gray-200 animate-pulse" />
+         <div className="w-16 h-16 rounded-full bg-gray-200 animate-pulse" />
+      </div>
+    </div>
+  );
+}
 
 export default function Reviews() {
   return (
@@ -27,8 +54,8 @@ export default function Reviews() {
           </h2>
         </div>
 
-        {/* Testimonials Container */}
-        <Testimonials />
+        {/* Dynamic Testimonials Container */}
+        <TestimonialsSection />
       </div>
     </section>
   );  
