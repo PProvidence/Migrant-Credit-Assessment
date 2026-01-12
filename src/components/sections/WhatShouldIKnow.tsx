@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense }from "react";
 import Image from "next/image";
 import TabSection from "./TabSection";
 
@@ -32,7 +32,9 @@ export default function WhatShouldIKnow() {
           />
         </div>
       </div>
-      <TabSection />
+      <Suspense fallback={<div className="w-full h-64 bg-gray-50 animate-pulse rounded-xl" />}>
+        <TabSection />
+      </Suspense>
     </section>
   );
 }
