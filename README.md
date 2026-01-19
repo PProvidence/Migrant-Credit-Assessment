@@ -6,9 +6,9 @@ A high-fidelity, performance-optimized landing page built for the Tredbase techn
 
 
 ## Overview
-- Repository: [GitHub Link]
+- Repository: [[GitHub Link](https://github.com/PProvidence/Migrant-Credit-Assessment.git)]
 
-- Live Demo: [Vercel/Netlify Link]
+- Live Demo: [[Vercel/Netlify Link](https://migrant-credit-assessment.vercel.app/)]
 
 Tech Stack: Next.js 16.1.1, Tailwind CSS v4.1.18, TypeScript, Framer Motion.
 
@@ -32,8 +32,13 @@ Tech Stack: Next.js 16.1.1, Tailwind CSS v4.1.18, TypeScript, Framer Motion.
 
 ### 3. State Management
 * **Context:** The "What Should I Know?" section requires switching content panes.
-* **Decision:** **URL-Driven State** (`useSearchParams`).
-* **Rationale:** Instead of local `useState`, the active tab is synced to the URL (e.g., `?tab=building-credit`). This improves UX by making specific educational modules shareable and bookmarkable.
+* **Decision A:** **URL-Driven State** (`useSearchParams`).
+* **Rationale A:** Instead of local `useState`, the active tab is synced to the URL (e.g., `?tab=building-credit`). This improves UX by making specific educational modules shareable and bookmarkable.
+* **Decision B (Modals):** **Polymorphic Context Pattern**.
+    * **Implementation:** Created a global `ModalContext` that manages a single `<SignUpModal />` component.
+    * The modal is **polymorphic**: it accepts a `mode` prop ('login' | 'signup') and dynamically swaps titles, inputs, and logic paths based on that prop, reducing code duplication.
+    * **Rationale B:** This avoids code duplication between two nearly identical modals.
+
 
 ### 4. Performance & Core Web Vitals
 * **Logo Strategy:** Exported as SVG and implemented via `next/image` with `priority={true}`. Using a web font (Chakra Petch) was rejected to save a network request and prevent CLS (Cumulative Layout Shift).

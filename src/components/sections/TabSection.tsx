@@ -4,7 +4,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { TABS_CONTENT } from '@/constants/data';
 import { cn } from '@/lib/utils';
-import Button from '@/components/ui/Button'; // Assuming you made this earlier
+import Button from '@/components/ui/Button';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function TabSection() {
