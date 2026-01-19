@@ -6,24 +6,29 @@ import { AnimatePresence } from 'framer-motion';
 
 interface ModalContextType {
   openSignUp: () => void;
-  closeSignUp: () => void;
+  // closeSignUp: () => void;
+  openLogin: () => void;
+  closeModal: () => void;
 }
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 export function ModalProvider({ children }: { children: ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [view, setView] = useState<'signup' | 'login' | null>(null);
+
+  const openSignUp = () => setView('signup');
+  const openLogin = () => setView('login');
+  const closeModal = () => setView(null);
 
   return (
-    <ModalContext.Provider value={{ 
-      openSignUp: () => setIsOpen(true), 
-      closeSignUp: () => setIsOpen(false) 
-    }}>
+    <ModalContext.Provider value={{ openSignUp, openLogin, closeModal }}>
       {children}
       
       {/* The Modal at the root level */}
       <AnimatePresence>
-        {isOpen && <SignUpModal isOpen={isOpen} onClose={() => setIsOpen(false)} />}
+        {view && (
+          <SignUpModal isOpen={!!view} onClose={closeModal} mode={view} />
+        )}
       </AnimatePresence>
       
     </ModalContext.Provider>
