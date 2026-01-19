@@ -3,140 +3,124 @@
 import Image from "next/image";
 import Button from "../ui/Button";
 import { useModal } from '@/context/ModalContext';
-// import { motion } from "framer-motion";
 
 export default function Hero() {
-  const { openSignUp } = useModal();
+  const { openSignUp, openLogin } = useModal();
+
   return (
-    <section className="relative w-full overflow-hidden sm:overflow-visible h-[600px] sm:h-[720px] lg:h-[800px] py--12 sm:py--20 lg:py--24">
-      {/* ================= BACKGROUND LAYER ================= */}
-      <div className="absolute inset-0 pointer-events-none mx-20 2xl:mx-50">
-        {/* Radial Gradient 1 */}
-        <div className="absolute left--[420px] left-0 top-[80px]- -top-9">
-          <div className="size-[482px] bg-radial from-[#e7f1f2] to-[#f8eae8]/0 rounded-full" />
+    <section className="relative w-full overflow-hidden bg-white pt-0 pb-20 lg:pt-4 lg:pb-32">
+      
+      {/* ================= BACKGROUND GRADIENTS ================= */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        {/* Left Gradient Blob */}
+        <div className="absolute -left-20 top-0 lg:-left-16 lg:-top-10">
+           <div className="w-[300px] h-[300px] lg:w-[600px] lg:h-[600px] bg-radial from-[#E7F2F3] via-[#F8EAE800] to-[#F8EAE800] rounded-full blur-2xl" />
         </div>
-
-        {/* Radial Gradient 2 + Map */}
-        <div className="absolute right-[120px]- -left-10 sm:left-30 lg:left-100 xl:left-170 2xl:left-177 right--0 top-[120px]- top-65 sm:top-20 xl:-top-10 2xl:top-0">
-          <div className="relative size-60.25 sm:size-[482px] animate-[gradientShift_6s_ease_infinite] bg-radial from-[#5f787a]/50 to-[#e5e9f4]/0 to--transparent rounded-full">
-            {/* Hero Map */}
-            <Image
-              src="/images/heroMap.svg"
-              alt="Credit landscape map"
-              fill
-              priority
-              className="object-contain"
-            />
-
-            {/* Credit Cards */}
-            <Image
-              src="/images/creditCard.svg"
-              alt="Credit card"
-              width={240}
-              height={150}
-              // fill
-              priority
-              className="absolute w-30 lg:w-60 right-0 top-[27px]- top-17.5"
-            />
-
-            <Image
-              src="/images/creditCardTranslucent.svg"
-              alt="Credit card"
-              width={240}
-              height={150}
-              // fill
-              priority
-              className="absolute w-30 lg:w-60 right-[40px] top-[140px]"
-            />
-          </div>
+        
+        {/* Right Gradient Blob */}
+        <div className="absolute -right-20 top-20 lg:-right-20 lg:-top-12 opacity-60">
+           <div className="w-[300px] h-[300px] lg:w-[700px] lg:h-[700px] bg-radial from-[#60797B] via-[#E5E9F400] to-[#E5E9F400] rounded-full blur-xl" />
         </div>
       </div>
 
-      {/* ================= CONTENT LAYER ================= */}
-      <div className="relative z-10 px--6 mx-4 lg:mx-25 xl:mx-43 hidden- lg:block">
-        <div className="absolute left-0 top-0 2xl:top-9.5 w-176.5 max-w-full">
-          {/* Heading */}
-          <h1 className="text-2xl sm:text-[32px] lg:text-5xl sm:leading-15 font-medium text-green-darker">
-            Empowering{" "}
-            <span className="text-green-normal-hover">Immigrants and Young Americans</span>
-            {" "}to{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10">Navigate</span>
+      {/* ================= MAIN CONTAINER ================= */}
+      <div className="relative z-10 mx--auto lg:mx-0 w-full max-w--[1040px] px-4 sm:px-6 lg:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-0 items-center w-full">
 
-              <svg
-                className="
-                  absolute animate--[spin_6s_linear_infinite]
-                  -left-[0.35em]
-                  -top-[0.15em]
-                  w-[calc(100%+0.7em)]
-                  h-[1.38em]
-                  pointer-events-none
-                "
-                viewBox="0 0 158.75 66.04"
-                fill="none"
+          {/* 1. LEFT CONTENT (Text) */}
+          <div className="max-w-176.5 w-full col-span-7 md:row-span-1 flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1">
+             {/* Heading */}
+            <h1 className="text-2xl sm:text-[32px] lg:text-5xl leading-[1.2] sm:leading-15 font-medium text-green-darker tracking--tight">
+              Empowering{" "}
+              <span className="text-green-normal-hover">Immigrants and Young Americans</span>
+              {" "}to{" "}
+              <span className="relative inline-block whitespace-nowrap">
+                <span className="relative z-10">Navigate</span>
+                {/* Oval SVG behind Navigate */}
+                <svg
+                  className="absolute -left-[10%] top-[5%] w-[120%] h-[110%] origin-top-left rotate-[-5.43deg] pointer-events-none"
+                  viewBox="0 0 158 66"
+                  fill="none"
+                >
+                  <ellipse cx="79" cy="33" rx="78" ry="32" stroke="#255F82" strokeWidth="1" />
+                </svg>
+              </span>{" "}
+              the{" "}
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-green-normal from-72% to-black/43.38 to-100% whitespace-nowrap">
+                Credit Landscape
+              </span>
+            </h1>
+
+            {/* Description */}
+            <p className="mt-6 text-gray-600 text-base sm:text-lg leading-relaxed max-w-lg">
+              Explore educational modules, track your credit journey, and get
+              personalized AI assistance. Your journey to financial well-being
+              starts here.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
+              <Button
+                variant="primary"
+                width="md"
+                onClick={openSignUp}
               >
-                <ellipse
-                  cx="79.375"
-                  cy="33.02"
-                  rx="79.375"
-                  ry="33.02"
-                  stroke="#255f82"
-                  strokeWidth="1"
-                />
-              </svg>
-            </span>{" "}
-            the{" "}
-            <span className="text-green--normal animate--[gradientShift_6s_ease_infinite] bg--[length:200%_200%] bg-linear-to-r from-green-normal from-72% via-green-normal/0 via-99% to-black/43.38 to-100% bg-clip-text text-transparent">Credit Landscape</span>
-          </h1>
+                Sign up for free
+              </Button>
+              <Button 
+                variant="outline" 
+                width="md"
+                onClick={openLogin}
+              >
+                Login
+              </Button>
+            </div>
+          </div>
 
-          {/* Description */}
-          <p className="mt-[24px] w-[471px] max-w-full text-[#333333] text-base leading-8 font-normal">
-            Explore educational modules, track your credit journey, and get
-            personalized AI assistance. Your journey to financial well-being
-            starts here.
-          </p>
+          {/* 2. RIGHT CONTENT (Map + Cards) */}
+          <div className="relative w-full col-span-5 max-w-[482px] flex justify-center lg:justify-end order-1 lg:order-2 h-[350px] lg:h-[450px] xl:h-[482px]">
+             
+             {/* This container anchors the cards to the map */}
+             <div className="relative w-full max-w-[500px] h-full">
+                
+                {/* 2a. Map Background */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Image
+                    src="/images/heroMap.svg"
+                    alt="World Map"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
 
-          {/* CTA Buttons */}
-          <div className="mt-[48px] flex flex-wrap gap-6">
-            <Button
-              variant="primary"
-              width="md"
-              onClick={openSignUp}
-            >
-              Sign up for free
-            </Button>
-              <Button variant="outline" width="md">
-            Login
-          </Button>
-        </div>
+                {/* 2b. Dark Credit Card (Top Right) */}
+                <div className="absolute top-[10%] right-0 w-[55%] max-w-[280px] animate-float-slow shadow-xl rounded-[20px] z-20">
+                   <Image
+                     src="/images/creditCard.svg"
+                     alt="Credit Card"
+                     width={280}
+                     height={176}
+                     className="w-full h-auto drop-shadow-xl"
+                   />
+                </div>
+
+                {/* 2c. Glass/Translucent Card (Bottom Left - overlapping) */}
+                <div className="absolute bottom-[15%] left-[25%] w-[55%] max-w-[280px] animate-float-delayed rounded-xl z-30">
+                   <Image
+                     src="/images/creditCardTranslucent.svg"
+                     alt="Translucent Credit Card"
+                     width={280}
+                     height={176}
+                     className="w-full h-auto drop-shadow-xl"
+                   />
+                </div>
+
+             </div>
+          </div>
+
         </div>
       </div>
-
-      {/* ================= MOBILE FALLBACK ================= */}
-      {/* <div className="relative z-10 mt-[480px] px-6 lg:hidden">
-        <h1 className="text-3xl font-medium text-[#0c1e20]">
-          Empowering{" "}
-          <span className="text-[#204e52]">
-            Immigrants and Young Americans
-          </span>{" "}
-          to Navigate the{" "}
-          <span className="text-[#23575b]">Credit Landscape</span>
-        </h1>
-
-        <p className="mt-4 text-[#333333]">
-          Explore educational modules, track your credit journey, and get
-          personalized AI assistance.
-        </p>
-
-        <div className="mt-6 flex gap-4">
-          <button className="flex-1 h-12 rounded-[30px] bg-[#23575b] text-white">
-            Sign up
-          </button>
-          <button className="flex-1 h-12 rounded-[30px] border border-[#23575b] text-[#23575b]">
-            Login
-          </button>
-        </div>
-      </div> */}
     </section>
   );
 }
