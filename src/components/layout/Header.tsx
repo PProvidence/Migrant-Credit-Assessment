@@ -9,12 +9,18 @@ import Button from '@/components/ui/Button';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { openSignUp } = useModal();
+  const { openLogin } = useModal();
+  const scrollToNewsletter = () => {
+    const newsletterSection = document.getElementById('newsletter');
+    if (newsletterSection) {
+      newsletterSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
       <header className="sticky top-0 z-50 bg-white shadow-sm">
-        <div className="mx--auto md:mx-auto gap-4  flex h-20 w-full sm:max-w--11/12 xl:max-w-260 items-center justify-between lg:justify--evenly px-4 md:px-12 lg:px--8 xl:px-0">
+        <div className="mx--auto md:mx-auto gap-4  flex h-20 w-full sm:max-w--11/12 xl:max-w-260 items-center justify-between lg:justify--evenly px-6 md:px-12 lg:px-16 xl:px-0">
           {/* Logo Div Container */}
           <div className="shrink-0">
             <Link href="/">
@@ -34,10 +40,10 @@ export function Header() {
 
           {/* Button Group Div */}
           <div className="hidden md:flex items-center gap-2.5 lg:gap-4">
-            <Button variant="primary" width="sm" onClick={openSignUp}>
+            <Button onClick={scrollToNewsletter} variant="primary" width="sm">
               Subscribe
             </Button>
-            <Button variant="outline" width="sm">
+            <Button onClick={openLogin} variant="outline" width="sm">
               Login
             </Button>
           </div>
