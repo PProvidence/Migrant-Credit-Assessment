@@ -21,13 +21,14 @@ export default function Newsletter() {
   const [state, formAction, isPending] = useActionState(subscribeToNewsletter, initialState);
 
   return (
-    <motion.section 
+    <motion.section
+      id="newsletter"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="pb-36.25 sm:px-4 flex w-full justify-center">
-      <div className="relative w-full max-w-260  px-3 py-8 bg-green-light-active rounded-[20px] overflow-hidden flex flex-col items-center justify-center text-center">
+      className="pb-36.25 sm:px--4 flex w-full justify-center">
+      <div className="relative w-full max-w-[7.22/10]  px-3 py-8 bg-green-light-active rounded-[20px] overflow-hidden flex flex-col items-center justify-center text-center">
 
         {/* --- Background Maps (Absolute Positioned) --- */}
         <div className="absolute top-0 left-2.25 w-full h-full opacity-40 pointer-events-none select-none">
